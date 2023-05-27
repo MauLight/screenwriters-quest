@@ -106,7 +106,7 @@ const Nav = () => {
                             <Popover.Content>
                                 <ul className='px-5'>
                                     <li className="border-gray-400 my-8 uppercase">
-                                        <a href="/dramatic">The Myth</a>
+                                        <a href="/dramatic1">The Myth</a>
                                     </li>
                                     <li className="border-gray-400 my-8 uppercase">
                                         <a href="/dramatic2">Lesson 01</a>
