@@ -1,6 +1,3 @@
-import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
-
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {

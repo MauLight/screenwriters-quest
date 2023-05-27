@@ -1,12 +1,14 @@
 import image from '../img/logo.26_nov.png'
 import Hamburger from 'hamburger-react';
 import { TiltWrapper } from '../hoc/SectionWrapper';
-import { Popover, Button } from '@nextui-org/react';
+import { Popover, Button, Text } from '@nextui-org/react';
 import { UserAuth } from '../context/authContext';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
 
     const { googleSignIn, logOut, user } = UserAuth()
+    const navigate = useNavigate()
 
     const handleSignIn = async () => {
         try {
@@ -53,11 +55,36 @@ const Nav = () => {
                             </li>
                             <li>
                                 {
-                                    user.displayName ?
+                                    user?.displayName ?
                                         (
-                                            <button onClick={handleSignOut}>
-                                                <i class="fa-solid fa-right-from-bracket"></i>
-                                            </button>
+                                            <Popover>
+                                                <Popover.Trigger>
+                                                    <button>
+                                                        <i className="text-xl fa-regular fa-user"></i>
+                                                    </button>
+                                                </Popover.Trigger>
+                                                <Popover.Content>
+                                                    <ul className='px-5'>
+                                                        <li className="border-gray-400 my-8 uppercase">
+                                                            <button onClick={() => navigate('/account')}>
+                                                                <div className='flex'>
+                                                                    <i className="text-xl fa-regular fa-user mx-2 pt-[4px]"></i>
+                                                                    <Text p size={20}>Profile</Text>
+                                                                </div>
+                                                            </button>
+                                                        </li>
+                                                        <li className="border-gray-400 my-8 uppercase">
+                                                            <button onClick={handleSignOut}>
+                                                                <div className='flex'>
+                                                                    <i className="fa-solid fa-right-from-bracket mx-2 py-[11px]"></i>
+                                                                    <Text p size={20}>Sign Out</Text>
+                                                                </div>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </Popover.Content>
+                                            </Popover>
+
                                         )
                                         :
                                         (
