@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import "../src/styles/animation.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+video {
+    object-fit: cover !important;
+    border-radius: 30px !important;
+}
+
+button {
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.v-btn:hover {
+    color: white !important;
+    border: solid 1px black !important;
+    background: rgb(72,40,197) !important;
+    background: linear-gradient(90deg, rgba(72,40,197,1) 0%, rgba(252,78,207,1) 72%) !important;
+}
