@@ -6,6 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
 
+      currentUser: "Mau",
+
       //HOME:
       //Section 1:
       Home_Section1_Title1: "Are you ready for THE QUEST?",
@@ -125,6 +127,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
 
+      //Dramatic Basis of Story----------------------------------------------------------
+
       handleConcept: (concept) => {
         setStore({ concept: concept });
       },
@@ -183,14 +187,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ tbattle: tbattle });
       },
 
-      //Google Auth---------------------------------------------------
-
-      googleSignIn: () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider);
-      },
-
-      //Google Auth---------------------------------------------------
+      //Dramatic Basis of Story----------------------------------------------------------
 
       login: async (email, password) => {
         console.log(email);

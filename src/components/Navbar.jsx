@@ -2,18 +2,25 @@ import image from '../img/logo.26_nov.png'
 import Hamburger from 'hamburger-react';
 import { TiltWrapper } from '../hoc/SectionWrapper';
 import { Popover, Button } from '@nextui-org/react';
-import { useContext } from 'react';
-import { Context } from '../context/appContext';
+import { UserAuth } from '../context/authContext';
 
 const Nav = () => {
 
-    const { actions } = useContext(Context)
+    const { googleSignIn, logOut, user } = UserAuth()
 
     const handleSignIn = async () => {
         try {
-            await actions.googleSignIn()
+            await googleSignIn()
         }
         catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleSignOut = async () => {
+        try {
+            await logOut()
+        } catch (error) {
             console.log(error)
         }
     }
@@ -45,9 +52,20 @@ const Nav = () => {
                                 </a>
                             </li>
                             <li>
-                                <button onClick={handleSignIn}>
-                                    <i className="text-xl fa-regular fa-user"></i>
-                                </button>
+                                {
+                                    user.displayName ?
+                                        (
+                                            <button onClick={handleSignOut}>
+                                                <i class="fa-solid fa-right-from-bracket"></i>
+                                            </button>
+                                        )
+                                        :
+                                        (
+                                            <button onClick={handleSignIn}>
+                                                <i className="text-xl fa-regular fa-user"></i>
+                                            </button>
+                                        )
+                                }
                             </li>
                         </ul>
                     </div>

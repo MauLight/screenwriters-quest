@@ -1,5 +1,7 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 import getState from './flux'
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 
 export const Context = createContext(null);
 
