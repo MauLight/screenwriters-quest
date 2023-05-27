@@ -1,3 +1,7 @@
+import { GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
+
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -178,6 +182,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleTheBattle: (tbattle) => {
         setStore({ tbattle: tbattle });
       },
+
+      //Google Auth---------------------------------------------------
+
+      googleSignIn: () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider);
+      },
+
+      //Google Auth---------------------------------------------------
 
       login: async (email, password) => {
         console.log(email);

@@ -27,7 +27,7 @@ const appContext = (PassedComponent) => {
       <Context.Provider value={state}>
         <PassedComponent {...props} />
       </Context.Provider>
-    ) 
+    )
   };
   return StoreWrap;
 };

@@ -1,9 +1,22 @@
 import image from '../img/logo.26_nov.png'
 import Hamburger from 'hamburger-react';
 import { TiltWrapper } from '../hoc/SectionWrapper';
-import { Popover, Text, Button } from '@nextui-org/react';
+import { Popover, Button } from '@nextui-org/react';
+import { useContext } from 'react';
+import { Context } from '../context/appContext';
 
 const Nav = () => {
+
+    const { actions } = useContext(Context)
+
+    const handleSignIn = async () => {
+        try {
+            await actions.googleSignIn()
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     const style = {
         width: '310px',
@@ -32,9 +45,9 @@ const Nav = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
+                                <button onClick={handleSignIn}>
                                     <i className="text-xl fa-regular fa-user"></i>
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>

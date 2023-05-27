@@ -13,6 +13,7 @@
     "@react-three/drei": "^9.68.3",
     "@react-three/fiber": "^8.13.0",
     "@types/three": "^0.152.0",
+    "firebase": "^9.22.1",
     "framer-motion": "^10.12.12",
     "hamburger-react": "^2.5.0",
     "maath": "^0.5.3",
